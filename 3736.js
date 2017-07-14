@@ -11,34 +11,31 @@
  */
 str="AAAABBBCCXYZDDDDEEEFFFAAAAAABBBBBBBBBBBBBBBBBBBBBBBBBBBB";
 function rle(str) {
-    var buff="";
-    var count = 0;
-    var result ="";
+  var buff = "";
+  var count = 0;
+  var result = "";
 
-    for( var i=0; i <= str.length; i++)
-    {
-        if (str[i] == buff)
-            count++;
-        else
-            switch(count){
-
-                case 0:
-                    buff = str[i];
-                    count++;
-                    break;
-
-                case 1:
-                    result += buff;
-                    buff = str[i];
-                    break;
-
-                default:
-                    result += buff + count;
-                    buff = str[i];
-                    count = 1;
-            }
-    }
-    return result;
+  for (var i=0; i <= str.length; i++)
+  {
+    if (str[i] == buff)
+      count++;
+    else
+      switch (count) {
+        case 0:
+          buff = str[i];
+          count++;
+          break;
+        case 1:
+          result += buff;
+          buff = str[i];
+          break;
+        default:
+          result += buff + count;
+          buff = str[i];
+          count = 1;
+      }
+  }
+  return result;
 }
 console.log("A4B3C2XYZD4E3F3A6B28");
 console.log(rle(str));
