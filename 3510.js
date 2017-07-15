@@ -7,17 +7,10 @@ const arr1 = [1, 2, 3, 4, 5];
 const arr2 = [1, 5, 6, 7];
 
 function f(arr1, arr2) {
-  let obj = {};
+  const arr3 = arr1.concat(arr2);
+  const obj = {};
 
-  for (let i = 0; i < arr1.length; i++) {
-    let str = arr1[i];
-    obj[str] = true;
-  }
-
-  for (let i = 0; i < arr2.length; i++) {
-    let str = arr2[i];
-    obj[str] = true;
-  }
+  arr3.forEach((value) => obj[value] = true );
 
   return Object.keys(obj);
 }
