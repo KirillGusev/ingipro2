@@ -9,15 +9,18 @@
  * 1. если символ встречается 1 раз, он остается без изменений
  * 2. если символ повторяется более 1 раза, к нему добавляется количество повторений
  */
+
+'use strict';
+
 str="AAAABBBCCXYZDDDDEEEFFFAAAAAABBBBBBBBBBBBBBBBBBBBBBBBBBBB";
 function rle(str) {
-  var buff = "";
-  var count = 0;
-  var result = "";
+  let buff = "";
+  let count = 0;
+  let result = "";
 
-  for (var i=0; i <= str.length; i++)
+  for (let i=0; i <= str.length; i++)
   {
-    if (str[i] == buff)
+    if (str[i] === buff)
       count++;
     else
       switch (count) {

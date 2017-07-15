@@ -8,23 +8,24 @@
  на выходе объект {width: 10, height: 20}
  */
 
-var mass = [
+'use strict';
+
+const mass = [
   {name: 'width', value: 10},
   {name: 'height', value: 20}
 ];
 
 function transform(arr) {
-  var object = {};
-  var key;
+  let object = {};
 
-  for (key in arr) {
+  for ( let key in arr) {
     object[arr[key].name] = arr[key].value;
   }
 
   return object;
 }
 
-var a;
+let a;
 a = transform(mass);
 alert(a.width);
 alert(a.height);

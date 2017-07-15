@@ -9,29 +9,28 @@
  range(0, 30, 5) // => [0, 5, 10, 15, 20, 25]
  range(0, 10, 3) // => [0, 3, 6, 9]
  range(0) // => [] */
-function range() {
-  var start, stop, step, i, j;
-  var result = [];
 
-  if (typeof(arguments[1]) == "undefined") {
+'use strict';
+
+function range(start, stop, step =1) {
+  if (stop === undefined) {
+    stop = start;
     start = 0;
-    stop = arguments[0];
-  } else {
-    start = arguments[0];
-    stop = arguments[1];
   }
 
-  if (typeof(arguments[2]) == "undefined")
-    step = 1;
-  else
-    step = arguments[2];
+  if (start > stop || step <= 0) {
+    return -1;
+  }
 
-  for (i = start, j = 0; i < stop; i += step, j++)
-    result[j] = i;
+  let result = [];
+
+  for (let i = start; i < stop; i += step) {
+    result.push(i);
+  }
 
   return result;
-
 }
+
 console.log( range(10) );
 console.log( range(1, 11) );
 console.log( range(0, 30, 5) );

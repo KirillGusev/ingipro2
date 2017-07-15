@@ -13,20 +13,24 @@
  то нужно вернуть'http://default/url/to/avatar'
  */
 
-var mike = {
+'use strict';
+
+function getAvatarUrl(obj, path){
+  let arr = path.split(', ');
+  let index = 0;
+  let length = arr.length;
+  while (obj !== null && index < length) {
+    obj = obj[arr[index++]];
+  }
+  return (index && index === length) ? obj : "http://default/url/to/avatar";
+
+}
+let mike = {
   friends: [{
     name: 'Anna',
     avatar: {
       url: 'http://some/url/to/avatar'
     }
   }]
-}
-function getAvatar(obj) {
-  if(typeof(obj) == "underfined" || typeof(obj.friends) == "underfined" ||
-    typeof(obj.friends.avatar) == "underfined")
-    return "http:'http://default/url/to/avatar'";
-  return mike.friends[0].avatar.url
-}
-
-alert( getAvatar(mike) );
-//P.S.  думаю, что я так до конца задания и не понял
+};
+console.log(getAvatarUrl(mike, "friends, 0, avatar, url"));

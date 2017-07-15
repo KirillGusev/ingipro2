@@ -4,9 +4,11 @@
  sum(1)(2);    // => 3
  sum(1)(2)(3); // => 6*/
 
+'use strict';
+
 function sum(a) {
 
-  var currentSum = a;
+  let currentSum = a;
 
   function f(b) {
     currentSum += b;
@@ -15,7 +17,7 @@ function sum(a) {
 
   f.toString = function() {
     return currentSum;
-  }
+  };
 
   return f;
 }

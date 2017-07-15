@@ -5,21 +5,24 @@
  truncate(str, 7); // 'Мама...'
  truncate(str, 11); // 'Мама мыла...'*/
 
-var str = 'Мама мыла раму';
+'use strict';
+
+let str = 'Мама мыла раму';
 
 function truncate (str, size) {
-  var count, buff = "", result = "";
+  let arr = str.split(' ');
+  let newStr = arr[0];
 
-  for (var i = 0; i < size; i++) {
-    if (str[i+1] == " ") {
-      result += buff + str[i];
-      buff = "";
-    } else
-      buff += str[i];
+  for(let i = 1; i < arr.length; i++){
+    if( (newStr.length + arr[i].length + 1) > len){
+      return newStr;
+    }
+    else newStr += ' ' + arr[i];
   }
-
-  result += "...";
-  return result;
+  if (newStr.length !== size) {
+    newStr += "...";
+  }
+  return newStr;
 }
 console.log( truncate(str, 7) );
 console.log( truncate(str, 11) );

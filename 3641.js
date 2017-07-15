@@ -6,44 +6,55 @@
  wrap("мама мыла раму", 11); // "мама мыла\nраму"
  wrap("экскурсия", 4); // экск\nурси\nя  */
 
-var str = "мама мыла раму";
-var str1 = "экскурсия";
+'use strict';
+
+let str = "мама мыла раму";
+let str1 = "экскурсия";
 
 function wrap(str, distance) {
-  var buff = "";
-  var buff1 = "";
-  var result = "";
-  var count = 0;
+  let buff = "";
+  let buff1 = "";
+  let result = "";
+  let count = 0;
 
-  for (var i=0; i<str.length; i++) {
-    if (str[i] != " ")
+  if (str.length === 0 || distance <= 0) {
+    return -1;
+  }
+
+  for (let i = 0; i < str.length; i++) {
+    if (str[i] !== " ") {
       buff = buff + str[i];
-    else {
-      if (buff1)
-        buff1 = buff1 + " " + buff;
-      else
-        buff1 = buff1 + buff;
+    } else {
+      if (buff1) {
+        buff1 += " " + buff;
+      } else {
+        buff1 += buff;
+      }
+
       buff = "";
     }
 
     count++;
 
-    if (count == distance) {
+    if (count === distance) {
       if (buff1) {
-        result = result + buff1 + '\\n';
+        result += buff1 + '\\n';
         buff1 = "";
         count = buff.length;
       } else {
-        result = result + buff + '\\n';
+        result +=  buff + '\\n';
         buff = "";
         count = 0;
       }
     }
   }
-  if (buff)
-    result = result + buff;
+
+  if (buff) {
+    result += buff;
+  }
+
   return result;
 }
 
-//console.log( wrap(str,11) );
-//console.log( wrap(str1,4) );
+console.log( wrap(str,11) );
+console.log( wrap(str1,4) );

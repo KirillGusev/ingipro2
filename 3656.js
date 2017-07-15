@@ -8,11 +8,21 @@
     // ...
 }*/
 
-function deepCopy(val) {
-  var copy;
+'use strict';
 
-  for (var key in val) {
-    if (typeof(copy[key] = "object")
+let mike = {
+  friends: {
+    name: 'Anna',
+    avatar: {
+      url: 'http://some/url/to/avatar'
+    }
+  }
+};
+
+function deepCopy(val) {
+  let copy = {};
+  for (let key in val) {
+    if (typeof copy[key] === "object")
       copy[key] = deepCopy( val[key] );
     else
       copy[key] = val[key];
@@ -20,3 +30,7 @@ function deepCopy(val) {
 
   return copy;
 }
+
+let test;
+
+test = deepCopy[mike];
