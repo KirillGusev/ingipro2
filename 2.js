@@ -18,12 +18,12 @@ function palindrome(str) {
   if (!str) {
     return null;
   }
-
+  str = str.toLowerCase();
   for (let i = 0; i < Math.floor(str.length/2); i++) {
-    if (str[i].toLowerCase() === str[str.length -1 -i].toLowerCase()) {
-      count++;
+    if (!(str[i] === str[str.length -1 -i])) {
+      return false;
     }
   }
 
-  return count ===  Math.floor(str.length/2);
+  return true;
 }
