@@ -9,7 +9,7 @@ function numberIn(arr) {
   let result = null;
   let processed=[];
 
-  for (let i=0; i< arr.length; i++) {
+  for (let i = 0; i < arr.length; i++) {
     count = 0 ;
 
     if(processed.indexOf(arr[i]) !== -1) {
