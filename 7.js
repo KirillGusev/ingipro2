@@ -1,9 +1,3 @@
-/**
- * Created by Интеграл on 18.07.2017.
- */
-/**
- * Created by Интеграл on 17.07.2017.
- */
 /*
  Напишите фукнцию сортировки sortLibrary массива объектов.
  Аргументы функции:
@@ -21,7 +15,7 @@ function sortLibrary(library, field_name, reverse, initial = x => x) {
     {
       return -1;
     }
-    if (initial(a[field_name]) > initial(b[field_name]))
+    if (initial(  a[field_name]) > initial(b[field_name]))
     {
       return 1;
     }
@@ -51,7 +45,7 @@ const library = [
     libraryID: 3245
   }
 ];
-console.log(sortLibrary(library, 'libraryID', true, parseInt));
+sortLibrary(library, 'libraryID', true, parseInt);
 /*
  [
  {
