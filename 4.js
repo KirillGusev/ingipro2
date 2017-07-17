@@ -8,25 +8,26 @@ sumAll([1, 4]); // 10 (1+2+3+4)
 sumAll([10, 5]) // 45 (10+9+8+7+6+5) */
 'use strict';
 
-
 function sumAll(arr) {
-let result = 0;
+  let result = 0;
+  let low;
+  let higher;
 
-if (!(typeof arr[0] === "number") || !(typeof arr[1] === "number")) {
-  return -1;
-}
+  if (!(typeof arr[0] === "number") || !(typeof arr[1] === "number")) {
+    return -1;
+  }
 
-if (arr[0] > arr[1]) {
-  let a = arr[1];
-  arr[1] = arr[0];
-  arr[0] = a;
-}
+  if (arr[0] > arr[1]) {
+    let a =arr[0];
+    arr[0] = arr[1];
+    arr[1] = a;
+  }
 
-for (let i = arr[0]; i <= arr[1]; i++) {
-  result += i;
-}
+  for (let i = low; i <= higher; i++) {
+    result += i;
+  }
 
-return result;
+  return result;
 }
 
 sumAll([1, 4]); // 10 (1+2+3+4)
