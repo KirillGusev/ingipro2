@@ -11,22 +11,18 @@ sumAll([10, 5]) // 45 (10+9+8+7+6+5) */
 
 function sumAll(arr) {
 let result = 0;
-let low;
-let higher;
 
 if (!(typeof arr[0] === "number") || !(typeof arr[1] === "number")) {
   return -1;
 }
 
-if (arr[0] <= arr[1]) {
-  low = arr[0];
-  higher = arr[1];
-} else {
-  low = arr[1];
-  higher = arr[0];
+if (arr[0] > arr[1]) {
+  let a = arr[1];
+  arr[1] = arr[0];
+  arr[0] = a;
 }
 
-for (let i = low; i <= higher; i++) {
+for (let i = arr[0]; i <= arr[1]; i++) {
   result += i;
 }
 
