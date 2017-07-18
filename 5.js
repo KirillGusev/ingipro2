@@ -31,7 +31,7 @@ function myReplace(str, before, after) {
 
   return result;
 }
-console.log(myReplace("Let us get back to more Coding", "Coding", "algorithms"));
+myReplace("Let us get back to more Coding", "Coding", "algorithms");
 // "Let us get back to more Algorithms".
-console.log(myReplace("A quick brown fox jumped over the lazy dog", "jumped", "leaped"));
+myReplace("A quick brown fox jumped over the lazy dog", "jumped", "leaped");
 // "A quick brown fox leaped over the lazy dog"
