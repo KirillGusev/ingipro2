@@ -18,6 +18,8 @@ function palindrome(str) {
   if (!str) {
     return null;
   }
+
+  str = str.split(' ').join('');
   str = str.toLowerCase();
   for (let i = 0; i < Math.floor(str.length/2); i++) {
     if (!(str[i] === str[str.length -1 -i])) {
@@ -35,8 +37,9 @@ function palindrome2(str) {
   if (!str) {
     return null;
   }
+
   str = str.toLowerCase();
-  let copy = str.split('').reverse().join('');
+  let copy = str.split(' ').reverse().join('');
 
   if (str === copy) {
     return true;
