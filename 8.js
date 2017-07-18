@@ -19,7 +19,6 @@
       img.src = url;
     });
   }
-}
 getImage('http://bit.ly/2vntYlL').then(url => {
   alert(`${url} successfully loaded`);
 }).catch(url => {
