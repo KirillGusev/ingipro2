@@ -27,3 +27,20 @@ function palindrome(str) {
 
   return true;
 }
+//второй вариант
+
+function palindrome2(str) {
+  let count = 0;
+
+  if (!str) {
+    return null;
+  }
+  str = str.toLowerCase();
+  let copy = str.split('').reverse().join('');
+
+  if (str === copy) {
+    return true;
+  }
+
+  return false;
+}
