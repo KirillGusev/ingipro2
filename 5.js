@@ -26,8 +26,8 @@ function myReplace(str, before, after) {
   } else {
     after = after[0].toLowerCase() + after.slice(1) ;
   }
-
-  result = str.slice(0, index) + after + str.slice(index+before.length);
+  
+  result = str.replace(before,after);
 
   return result;
 }
