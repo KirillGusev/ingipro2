@@ -31,9 +31,7 @@ function reverseString2(str) {
     return null;
   }
 
-  arr = str.split('');
-  arr.reverse();
-  result = arr.join('');
+  result = str.split('').reverse().join('');
 
   return result;
 }
