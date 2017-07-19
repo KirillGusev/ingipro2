@@ -10,12 +10,13 @@ function chunkArrayInGroups(arr, size) {
   let result = [];
   let buff = [];
   let j = 0;
-  const remnant = arr.length % size;
 
   if (!(size > 0)) {
     return -1;
   }
 
+  const remnant = arr.length % size;
+ 
   for (let i = 0; i < arr.length; i += size, j++) {
     buff = arr.slice(i, i+size);
     result[j] = buff;
