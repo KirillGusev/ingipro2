@@ -20,7 +20,7 @@ function sortLibrary(library, field_name, reverse, initial = x => x) {
     if (initial(a[field_name]) < initial(b[field_name])) {
       return -1;
     }
-    if (initial(  a[field_name]) > initial(b[field_name])) {
+    if (initial(a[field_name]) > initial(b[field_name])) {
       return 1;
     }
     return 0;
