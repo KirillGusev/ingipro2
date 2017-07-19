@@ -11,6 +11,12 @@ function sortLibrary(library, field_name, reverse, initial = x => x) {
   library.sort(sortFunction);
 
   function sortFunction(a, b) {
+    if (reverse === true) {
+      let c = a;
+      a = b;
+      b = c;
+    }
+   
     if (initial(a[field_name]) < initial(b[field_name])) {
       return -1;
     }
@@ -18,10 +24,6 @@ function sortLibrary(library, field_name, reverse, initial = x => x) {
       return 1;
     }
     return 0;
-  }
-
-  if (reverse === true) {
-    library.reverse();
   }
 
   return library;
