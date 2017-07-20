@@ -65,5 +65,5 @@ function getCityParameters(city, numberOfNeighbor) {
   });
 }
 
-
-getCityParameters('New York', 5);
+string prompt('Введите город', 'London')
+getCityParameters(string, 5);
