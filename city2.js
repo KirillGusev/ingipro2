@@ -65,5 +65,4 @@ function getCityParameters(city, numberOfNeighbor) {
   });
 }
 
-string prompt('Введите город', 'London')
-getCityParameters(string, 5);
+getCityParameters(prompt('Введите город', 'London'), 5);
