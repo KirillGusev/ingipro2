@@ -22,23 +22,22 @@ function findTempMax(cities) {
   cities.forEach( (name, index) => {
     if (cities[index].main.temp > tempMax.temp) {
       tempMax.name = cities[index].name;
-      tempMax.temp = cities[index].main.temp;
+
+      alert(`В городе ${cities[index].name} температура ${tempMax.temp}C. 
+Это на ${(cities[index].main.temp - cities[0].main.temp).toFixed(2)}С теплее, чем в ${cities[0].name}`);
     }
-  })
+    }
+  )
 
   if (tempMax.name === cities[0].name) {
     alert(`В городе ${tempMax.name} теплее, чем в 5 ближайших городах`);
-  } else {
-    alert(`В городе ${tempMax.name} температура ${tempMax.temp}C. Это на
-    ${(tempMax.temp - cities[0].main.temp).toFixed(2)}С теплее, чем в ${cities[0].name}`);
   }
 
   return tempMax;
 }
 
 function getCitiesTempMax({lon, lat, name, temp}, numberOfNeighbor) {
-  fetch(`http://api.openweathermap.org/data/2.5/find?lat=${lat}&lon=
-  ${lon}&cnt=${numberOfNeighbor + 1}&units=metric&appid=bd5e378503939ddaee76f12ad7a97608`)
+  fetch(`http://api.openweathermap.org/data/2.5/find?lat=${lat}&lon=${lon}&cnt=${numberOfNeighbor + 1}&units=metric&appid=bd5e378503939ddaee76f12ad7a97608`)
   .then( response => response.json() )
   .then( json => {
     findTempMax(json.list);
