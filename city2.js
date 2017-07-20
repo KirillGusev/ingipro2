@@ -1,5 +1,15 @@
-/**
- * Created by Интеграл on 20.07.2017.
+/*
+ Теплее ли в ближайшем городе?
+ Как в 1ой задаче предложить пользователю ввести название города.
+ Сделать запрос к ручке получения текущей погоды в этом городе (http://openweathermap.org/current#name).
+ Из ответа узнать координаты его города. Сделать запрос к ручке http://openweathermap.org/current#cycle, и узнать
+ погоду в 5 ближайших городах.
+ Найти город с максимальной температурой. Вывести сообщение.
+ Например, пользователь ввел Moscow.
+ Покажем ему сообщение:
+ "В городе Ryazanovo температура 21C. Это на 2С теплее, чем в Moscow". - Если температура выше, чем в городе пользователя
+ "В городе Moscow теплее, чем в 5 ближайших городах". - Если в найденных городах температура ниже, чем в городе пользователя
+ http://api.openweathermap.org/data/2.5/find?lat=55.5&lon=37.5&cnt=10
  */
 'use strict';
 
@@ -33,7 +43,7 @@ function getCitiesTempMax({lon, lat, name, temp}, numberOfNeighbor) {
     findTempMax(json.list);
   })
   .catch( error => {
-    alert('Не смог найти информации о ближних городах. ' + error.message);
+    alert('Не смог найти информацию о ближних городах. ' + error.message);
   });
 }
 
@@ -51,7 +61,7 @@ function getCityParameters(city, numberOfNeighbor) {
     getCitiesTempMax(city, numberOfNeighbor);
   })
   .catch( error => {
-    alert(`Не смог найти информации о апрашиваемом городе - ${city}. ` + error.message);
+    alert(`Не смог найти информацию о запрашиваемом городе - ${city}. ` + error.message);
   });
 }
 
