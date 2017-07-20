@@ -30,5 +30,4 @@ function getCitiesParameters(cities) {
   });
 }
 
-
-getCitiesParameters(`New York, Moskow, London`);
+getCitiesParameters(prompt('Введите город', 'London'));
