@@ -32,5 +32,6 @@ function getCityParameters(city) {
     alert('Fetch error: ' + error.message);
   });
 }
-const string = prompt('Введите город', 'London')
-getCityParameters(string);
+
+
+getCityParameters(prompt('Введите город', 'London'));
