@@ -11,27 +11,28 @@
  */
 
 'use strict';
+function getLongInStr(dayLongInSec) {
+    const hour = Math.floor(dayLongInSec / (60 * 60));
+    const minute = Math.floor((dayLongInSec - hour * 60 * 60) / 60);
+    const second = dayLongInSec - hour * 60 * 60 - minute * 60;
+
+    return `${hour}:${minute}:${second}`;
+}
 
 function getCityParameters(city) {
-  fetch(`http://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=bd5e378503939ddaee76f12ad7a97608`)
-  .then( response => response.json() )
-  .then( json => {
-    function getLongInStr(dayLongInSec) {
-      const hour = Math.floor(dayLongInSec / (60 * 60));
-      const minute = Math.floor((dayLongInSec - hour * 60 * 60) / 60);
-      const second = dayLongInSec - hour * 60 * 60 - minute * 60;
+    fetch(`http://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=bd5e378503939ddaee76f12ad7a97608`)
+        .then(response => response.json())
+        .then(json => {
 
-      return `${hour}:${minute}:${second}`;
-    }
-
-    const dayLongInSec = json.sys.sunset - json.sys.sunrise;
-    const dayLongInStr = getLongInStr(dayLongInSec);
-    alert(`Температура в Цельсиях: ${json.main.temp}\nПродолжительность дня: ${dayLongInStr}\nСкорость ветра: ${json.wind.speed}`);
-  })
-  .catch( error => {
-    alert('Fetch error: ' + error.message);
-  });
-}
+            const dayLongInSec = json.sys.sunset - json.sys.sunrise;
+            const dayLongInStr = getLongInStr(dayLongInSec);
+            alert(`Температура в Цельсиях: ${json.main.temp}
+Продолжительность дня: ${dayLongInStr}
+Скорость ветра: ${json.wind.speed}`);})
+        .catch(error => {
+          alert('Fetch error: ' + error.message);
+        });
+        }
 
 
 getCityParameters(prompt('Введите город', 'London'));
