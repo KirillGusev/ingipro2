@@ -34,7 +34,7 @@ async function getCitiesTempMax(centralCityName, NumberCities) {
   try {
     const city = await getCityParameters(centralCityName);
 
-    return fetch(`http://api.openweathermap.org/data/2.5/find?lat=${city.lat}&lon=${city.lon}&cnt=${NumberCities + 1}&units=metric&appid=bd5e378503939ddaee76f12ad7a97608`)
+    return await fetch(`http://api.openweathermap.org/data/2.5/find?lat=${city.lat}&lon=${city.lon}&cnt=${NumberCities + 1}&units=metric&appid=bd5e378503939ddaee76f12ad7a97608`)
     .then( response => response.json() )
     .then( json => json.list );
 
