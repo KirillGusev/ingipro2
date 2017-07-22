@@ -14,16 +14,17 @@
 
 function getCitiesParameters(cities) {
   const arrCities = cities.split(', ');
+
   Promise.all( arrCities.map( name => fetch(`http://api.openweathermap.org/data/2.5/weather?q=${name}&units=metric&appid=bd5e378503939ddaee76f12ad7a97608`)
   .then( response => response.json() )))
   .then( arrJson => {
-    let result = ``;
+    let result = [];
 
     for (let city of arrJson) {
-      result += `${city.name}: температура ${city.main.temp}С, влажность: ${city.main.humidity}%, cкорость ветра: ${city.wind.speed}\n`;
+      result.push(`${city.name}: температура ${city.main.temp}С, влажность: ${city.main.humidity}%, cкорость ветра: ${city.wind.speed}`);
     }
 
-    alert(result);
+    alert(result.join('\n'));
   })
   .catch( error => {
     alert(`Не смог найти информацию о запрашиваемом городе - ${city}. ` + error.message);
