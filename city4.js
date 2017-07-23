@@ -6,7 +6,7 @@
 
 async function findTempMax(centralCityName, numberCities) {
   try {
-    const cities = await getCitiesTempMax(centralCityName, numberCities);
+    const cities = await getCities(centralCityName, numberCities);
 
     const tempMax = {
       name: cities[0].name,
@@ -30,7 +30,7 @@ async function findTempMax(centralCityName, numberCities) {
   }
 }
 
-async function getCitiesTempMax(centralCityName, numberCities) {
+async function getCities(centralCityName, numberCities) {
   try {
     const city = await getCityParameters(centralCityName);
 
