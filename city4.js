@@ -15,7 +15,7 @@ async function findTempMax(centralCityName, numberCities) {
 
     cities.forEach( (name, index) => {
       if (cities[index].main.temp > tempMax.temp) {
-        tempMax.name = cities[index].name;
+        tempMax.name = name;
         alert(`В городе ${tempMax.name} температура ${tempMax.temp}C.
 Это на ${(tempMax.temp - cities[0].main.temp).toFixed(2)}С теплее, чем в ${cities[0].name}`);
       }
