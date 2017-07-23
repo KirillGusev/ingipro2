@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <style>
+
+        body {
+            background: rgb(200,200,200);
+        }
+        svg {
+            margin: auto;
+            display: block;
+            background: white;
+        }
+
+    </style>
+    <script src="http://d3js.org/d3.v4.min.js"> </script>
+<body>
+
+<script type="text/javascript">
+  const svg = d3.select("body").append("svg");
+  svg
+  .attr("width", 300)
+  .attr("height", 300)
+  .on("mousedown", mouseDown);
+
+  const line = d3.line()
+  .x(d => d[0])
+  .y(d => d[1])
+
+  const color = ["green", "red", "yellow", "blue", "black", "purple", "orange", "grey", "brown", "yellow"];
+
+  function mouseDown() {
+    const data = [];
+    const path = svg.append("path")
+
+    path
+    .attr("stroke", color[Math.round(Math.random() * color.length)])
+    .attr("stroke-width", 3)
+    .attr("fill", "none");
+
+    svg
+    .on("mousemove", () => {
+      data.push(d3.mouse(this));
+      path.attr("d", line(data));
+    })
+    .on("mouseup", () => svg.on("mousemove", null));
+  }
+</script>
+</body>
+
+</table>
+</html>
