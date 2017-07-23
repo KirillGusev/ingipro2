@@ -4,9 +4,9 @@
 
 'use strict';
 
-async function findTempMax(centralCityName, NumberCities) {
+async function findTempMax(centralCityName, numberCities) {
   try {
-    const cities = await getCitiesTempMax(centralCityName, NumberCities);
+    const cities = await getCitiesTempMax(centralCityName, numberCities);
 
     const tempMax = {
       name: cities[0].name,
@@ -30,11 +30,11 @@ async function findTempMax(centralCityName, NumberCities) {
   }
 }
 
-async function getCitiesTempMax(centralCityName, NumberCities) {
+async function getCitiesTempMax(centralCityName, numberCities) {
   try {
     const city = await getCityParameters(centralCityName);
 
-    return await fetch(`http://api.openweathermap.org/data/2.5/find?lat=${city.lat}&lon=${city.lon}&cnt=${NumberCities + 1}&units=metric&appid=bd5e378503939ddaee76f12ad7a97608`)
+    return await fetch(`http://api.openweathermap.org/data/2.5/find?lat=${city.lat}&lon=${city.lon}&cnt=${numberCities + 1}&units=metric&appid=bd5e378503939ddaee76f12ad7a97608`)
     .then( response => response.json() )
     .then( json => json.list );
 
